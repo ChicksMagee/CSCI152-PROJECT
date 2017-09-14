@@ -123,6 +123,21 @@
           55
         ]
       },
+      "move8": {
+        "name": "move8",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87
+        ]
+      },
       "move6": {
         "name": "move6",
         "speed": 10,
