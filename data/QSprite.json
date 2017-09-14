@@ -5,7 +5,7 @@
     "rows": 14,
     "anchorX": 0.5,
     "anchorY": 1,
-    "sampleImg": "C:\\Users\\Zarudin\\Pictures\\rpgmaker\\hero\\hero sprite.png",
+    "sampleImg": "C:\\Users\\Zarudin\\Documents\\Games\\Project1\\img\\characters\\%hero-sprite.png",
     "poses": {
       "atk1": {
         "name": "atk1",
