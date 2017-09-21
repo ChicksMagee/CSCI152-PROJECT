@@ -3,7 +3,7 @@
 //=============================================================================
 
 /*:
- * @plugindesc (v1.6) Adiciona uma Hud com os parâmetros do personagem.
+ * @plugindesc (v1.8) Adiciona uma Hud com os parâmetros do personagem.
  * @author Moghunter
  *
  * @param Initial Visible
@@ -119,6 +119,47 @@
  * @desc Definição da posição Y-Axis do numero de HP maximo.
  * @default 40
  *
+ * @param HP Icon Visible
+ * @desc Apresentar o ícone de HP.
+ * @default false
+ *
+ * @param HP Icon Half Mode
+ * @desc Um ícone equivale a 2 pontos de HP.
+ * @default false
+ *
+ * @param HP Icon Max Colors
+ * @desc Quantidade de cores do ícone.
+ * A imagem será dividida pelo número de cores.
+ * @default 2
+ *
+ * @param HP Icon Max Rows
+ * @desc Quantidade de ícones por linha.
+ * @default 10
+ *
+ * @param HP Icon Max Columns
+ * @desc Quantidade de linhas.
+ * @default 2
+ *
+ * @param HP Icon X-Axis
+ * @desc Quantidade X-Axis dos ícones.
+ * @default 143
+ *
+ * @param HP Icon Y-Axis
+ * @desc Quantidade Y-Axis dos ícones.
+ * @default 85
+ *
+ * @param HP Icon Space X
+ * @desc Definição do espaço entre os ícones na horizontal.
+ * @default 0
+ *
+ * @param HP Icon Space Y
+ * @desc Definição do espaço entre os ícones na vertical.
+ * @default 0
+ *
+ * @param HP Icon Zoom Anime
+ * @desc Ativar a animação de zoom no último ícone.
+ * @default true
+ *
  * @param >> MP ===================
  * @desc 
  * @default  
@@ -168,6 +209,47 @@
  * @desc Definição da posição Y-Axis do numero de MP maximo.
  * @default 78
  *
+ * @param MP Icon Visible
+ * @desc Apresentar o ícone de MP.
+ * @default false
+ *
+ * @param MP Icon Half Mode
+ * @desc Um ícone equivale a 2 pontos de MP.
+ * @default false 
+ * 
+ * @param MP Icon Max Colors
+ * @desc Quantidade de cores do ícone.
+ * A imagem será dividida pelo número de cores.
+ * @default 2
+ *
+ * @param MP Icon Max Rows
+ * @desc Quantidade de ícones por linha.
+ * @default 10
+ *
+ * @param MP Icon Max Columns
+ * @desc Quantidade de linhas.
+ * @default 2
+ *
+ * @param MP Icon X-Axis
+ * @desc Quantidade X-Axis dos ícones.
+ * @default 143
+ *
+ * @param MP Icon Y-Axis
+ * @desc Quantidade Y-Axis dos ícones.
+ * @default 120
+ *
+ * @param MP Icon Space X
+ * @desc Definição do espaço entre os ícones na horizontal.
+ * @default 0
+ *
+ * @param MP Icon Space Y
+ * @desc Definição do espaço entre os ícones na vertical.
+ * @default 0
+ *
+ * @param MP Icon Zoom Anime
+ * @desc Ativar a animação de zoom no último ícone.
+ * @default true
+ * 
  * @param >> TP ===================
  * @desc 
  * @default  
@@ -217,6 +299,47 @@
  * @desc Definição da posição Y-Axis do numero de TP maximo.
  * @default 116
  *
+ * @param TP Icon Visible
+ * @desc Apresentar o ícone de TP.
+ * @default false
+ *
+ * @param TP Icon Half Mode
+ * @desc Um ícone equivale a 2 pontos de TP.
+ * @default false
+ * 
+ * @param TP Icon Max Colors
+ * @desc Quantidade de cores do ícone.
+ * A imagem será dividida pelo número de cores.
+ * @default 2
+ *
+ * @param TP Icon Max Rows
+ * @desc Quantidade de ícones por linha.
+ * @default 10
+ *
+ * @param TP Icon Max Columns
+ * @desc Quantidade de linhas.
+ * @default 2
+ *
+ * @param TP Icon X-Axis
+ * @desc Quantidade X-Axis dos ícones.
+ * @default 143
+ *
+ * @param TP Icon Y-Axis
+ * @desc Quantidade Y-Axis dos ícones.
+ * @default 50
+ *
+ * @param TP Icon Space X
+ * @desc Definição do espaço entre os ícones na horizontal.
+ * @default 0
+ *
+ * @param TP Icon Space Y
+ * @desc Definição do espaço entre os ícones na vertical.
+ * @default 0
+ *
+ * @param TP Icon Zoom Anime
+ * @desc Ativar a animação de zoom no último ícone.
+ * @default true
+ * 
  * @param >> EXP ===================
  * @desc 
  * @default  
@@ -267,7 +390,7 @@
  *
  * @help  
  * =============================================================================
- * +++ MOG Actor Hud (v1.5) +++
+ * +++ MOG Actor Hud (v1.8) +++
  * By Moghunter 
  * https://atelierrgss.wordpress.com/
  * =============================================================================
@@ -305,6 +428,12 @@
  * ============================================================================
  * HISTÓRICO
  * ============================================================================
+ * (v1.8) - Correção do glitch de fazer a hud piscar após acessar o menu.
+ *        - Melhoria na compatibilidade de plugins. 
+ * (v1.7) - Adição do medidor em ícones.
+ *        - Melhoria na definição do ángulo do medidor.
+ *        - Correção na apresentação do valor de TP máximo.
+ * (v1.6) - Compatibilidade com Chrono Engine. 
  * (v1.6) - Compatibilidade com Chrono Engine.
  * (v1.5) - Correção do glitch de piscar a hud. 
  *        - Melhoria na apresentação das condições.
@@ -345,7 +474,43 @@
 	Moghunter.ahud_name_font_italic = String(Moghunter.parameters['Name Font Italic'] || false);	
 	Moghunter.ahud_name_pos_x = Number(Moghunter.parameters['Name X-Axis'] || 5);
 	Moghunter.ahud_name_pos_y = Number(Moghunter.parameters['Name Y-Axis'] || 20);	
-		
+	
+	// HP ICON POSITION
+	Moghunter.ahud_hp_icon_visible = String(Moghunter.parameters['HP Icon Visible'] || 'false');
+	Moghunter.ahud_hp_icon_halfMode = String(Moghunter.parameters['HP Icon Half Mode'] || 'false');	
+	Moghunter.ahud_hp_icon_colorMax = Number(Moghunter.parameters['HP Icon Max Colors'] || 2);	 
+	Moghunter.ahud_hp_icon_rows = Number(Moghunter.parameters['HP Icon Max Rows'] || 10);
+	Moghunter.ahud_hp_icon_cols = Number(Moghunter.parameters['HP Icon Max Columns'] || 2);	
+	Moghunter.ahud_hp_icon_pos_x = Number(Moghunter.parameters['HP Icon X-Axis'] || 143);
+	Moghunter.ahud_hp_icon_pos_y = Number(Moghunter.parameters['HP Icon Y-Axis'] || 85);	
+	Moghunter.ahud_hp_icon_space_x = Number(Moghunter.parameters['HP Icon Space X'] || 0);
+	Moghunter.ahud_hp_icon_space_y = Number(Moghunter.parameters['HP Icon Space Y'] || 0);	
+	Moghunter.ahud_hp_icon_zoomAnime = String(Moghunter.parameters['HP Icon Zoom Anime'] || 'true');	
+	
+	// MP ICON POSITION
+	Moghunter.ahud_mp_icon_visible = String(Moghunter.parameters['MP Icon Visible'] || 'false');
+	Moghunter.ahud_mp_icon_halfMode = String(Moghunter.parameters['MP Icon Half Mode'] || 'false');	
+	Moghunter.ahud_mp_icon_colorMax = Number(Moghunter.parameters['MP Icon Max Colors'] || 2);	 
+	Moghunter.ahud_mp_icon_rows = Number(Moghunter.parameters['MP Icon Max Rows'] || 10);
+	Moghunter.ahud_mp_icon_cols = Number(Moghunter.parameters['MP Icon Max Columns'] || 2);	
+	Moghunter.ahud_mp_icon_pos_x = Number(Moghunter.parameters['MP Icon X-Axis'] || 143);
+	Moghunter.ahud_mp_icon_pos_y = Number(Moghunter.parameters['MP Icon Y-Axis'] || 125);	
+	Moghunter.ahud_mp_icon_space_x = Number(Moghunter.parameters['MP Icon Space X'] || 0);
+	Moghunter.ahud_mp_icon_space_y = Number(Moghunter.parameters['MP Icon Space Y'] || 0);	
+	Moghunter.ahud_mp_icon_zoomAnime = String(Moghunter.parameters['MP Icon Zoom Anime'] || 'true');	
+
+	// TP ICON POSITION
+	Moghunter.ahud_tp_icon_visible = String(Moghunter.parameters['TP Icon Visible'] || 'false');
+	Moghunter.ahud_tp_icon_halfMode = String(Moghunter.parameters['TP Icon Half Mode'] || 'false');	
+	Moghunter.ahud_tp_icon_colorMax = Number(Moghunter.parameters['TP Icon Max Colors'] || 2);	 
+	Moghunter.ahud_tp_icon_rows = Number(Moghunter.parameters['TP Icon Max Rows'] || 10);
+	Moghunter.ahud_tp_icon_cols = Number(Moghunter.parameters['TP Icon Max Columns'] || 2);	
+	Moghunter.ahud_tp_icon_pos_x = Number(Moghunter.parameters['TP Icon X-Axis'] || 143);
+	Moghunter.ahud_tp_icon_pos_y = Number(Moghunter.parameters['TP Icon Y-Axis'] || 50);	
+	Moghunter.ahud_tp_icon_space_x = Number(Moghunter.parameters['TP Icon Space X'] || 0);
+	Moghunter.ahud_tp_icon_space_y = Number(Moghunter.parameters['TP Icon Space Y'] || 0);	
+	Moghunter.ahud_tp_icon_zoomAnime = String(Moghunter.parameters['TP Icon Zoom Anime'] || 'true');	
+	
 	// HP METER POSITION
 	Moghunter.ahud_hp_meter_visible = String(Moghunter.parameters['HP Meter Visible'] || true);
 	Moghunter.ahud_hp_meter_pos_x = Number(Moghunter.parameters['HP Meter X-Axis'] || 143);
@@ -473,14 +638,14 @@ Game_Actor.prototype.nextLevelExp_r = function() {
 // * Screen RealX
 //==============================
 Game_CharacterBase.prototype.screen_realX = function() {
-    return this.scrolledX() * $gameMap.tileWidth()
+    return this.scrolledX() * $gameMap.tileWidth();
 };
 
 //==============================
 // * Screen RealY
 //==============================
 Game_CharacterBase.prototype.screen_realY = function() {
-    return this.scrolledY() * $gameMap.tileHeight()
+    return this.scrolledY() * $gameMap.tileHeight();
 };
 
 //=============================================================================
@@ -498,23 +663,25 @@ Game_Interpreter.prototype.pluginCommand = function(command, args) {
 	return true;
 };
 
+
 //=============================================================================
-// ** Spriteset Map
-//=============================================================================
+// ** Scene Map
+//=============================================================================	
 
 //==============================
-// * Create Upper Layer
+// * create All Windows
 //==============================
-var _alias_mog_ahud_sprmap_createUpperLayer = Spriteset_Map.prototype.createUpperLayer;
-Spriteset_Map.prototype.createUpperLayer = function() {
-    _alias_mog_ahud_sprmap_createUpperLayer.call(this);
-	this.create_actor_hud();
+var _mog_actorHud_createAllWindows = Scene_Map.prototype.createAllWindows;
+Scene_Map.prototype.createAllWindows = function() {
+    this.create_actor_hud();
+	_mog_actorHud_createAllWindows.call(this);	
 };
+
 
 //==============================
 // * Create Actor Hud
 //==============================
-Spriteset_Map.prototype.create_actor_hud = function() {
+Scene_Map.prototype.create_actor_hud = function() {
 	this._actor_hud = new Actor_Hud();
 	this.addChild(this._actor_hud);	
 };
@@ -540,6 +707,7 @@ Actor_Hud.prototype.initialize = function(hud_id) {
     this.base_parameter_clear();
     this.load_img();
 	if (!$gameSystem._ahud_visible) {this.opacity = 0};
+	this.update();
 };
 
 //==============================
@@ -548,17 +716,20 @@ Actor_Hud.prototype.initialize = function(hud_id) {
 Actor_Hud.prototype.load_img = function() {
 	this._layout_img = ImageManager.loadAHud("Layout");
 	this._state_img = ImageManager.loadSystem("IconSet");
-	if (String(Moghunter.ahud_hp_meter_visible) == "true") {this._hp_meter_img = ImageManager.loadAHud("HP_Meter");};
-	if (String(Moghunter.ahud_mp_meter_visible) == "true") {this._mp_meter_img = ImageManager.loadAHud("MP_Meter");};
-	if (String(Moghunter.ahud_tp_meter_visible) == "true") {this._tp_meter_img = ImageManager.loadAHud("TP_Meter");};
-	if (String(Moghunter.ahud_exp_meter_visible) == "true") {this._exp_meter_img = ImageManager.loadAHud("EXP_Meter");};
-	if (String(Moghunter.ahud_hp_number_visible) == "true") {this._hp_number_img = ImageManager.loadAHud("HP_Number");};
-	if (String(Moghunter.ahud_mp_number_visible) == "true") {this._mp_number_img = ImageManager.loadAHud("MP_Number");};
-	if (String(Moghunter.ahud_tp_number_visible) == "true") {this._tp_number_img = ImageManager.loadAHud("TP_Number");};
-	if (String(Moghunter.ahud_level_number_visible) == "true") {this._level_number_img = ImageManager.loadAHud("LV_Number");};
-	if (String(Moghunter.ahud_maxhp_number_visible) == "true") {this._maxhp_number_img = ImageManager.loadAHud("HP_Number2");};
-	if (String(Moghunter.ahud_maxmp_number_visible) == "true") {this._maxmp_number_img = ImageManager.loadAHud("MP_Number2");};
-	if (String(Moghunter.ahud_maxtp_number_visible) == "true") {this._maxtp_number_img = ImageManager.loadAHud("TP_Number2");};	
+	if (String(Moghunter.ahud_hp_meter_visible) == "true") {this._hp_meter_img = ImageManager.loadAHud("HP_Meter")};
+	if (String(Moghunter.ahud_mp_meter_visible) == "true") {this._mp_meter_img = ImageManager.loadAHud("MP_Meter")};
+	if (String(Moghunter.ahud_tp_meter_visible) == "true") {this._tp_meter_img = ImageManager.loadAHud("TP_Meter")};	
+	if (String(Moghunter.ahud_hp_icon_visible) == "true") {this._hp_icon_img = ImageManager.loadAHud("HP_Icon")};
+	if (String(Moghunter.ahud_mp_icon_visible) == "true") {this._mp_icon_img = ImageManager.loadAHud("MP_Icon")};
+	if (String(Moghunter.ahud_tp_icon_visible) == "true") {this._tp_icon_img = ImageManager.loadAHud("TP_Icon")};	
+	if (String(Moghunter.ahud_exp_meter_visible) == "true") {this._exp_meter_img = ImageManager.loadAHud("EXP_Meter")};
+	if (String(Moghunter.ahud_hp_number_visible) == "true") {this._hp_number_img = ImageManager.loadAHud("HP_Number")};
+	if (String(Moghunter.ahud_mp_number_visible) == "true") {this._mp_number_img = ImageManager.loadAHud("MP_Number")};
+	if (String(Moghunter.ahud_tp_number_visible) == "true") {this._tp_number_img = ImageManager.loadAHud("TP_Number")};
+	if (String(Moghunter.ahud_level_number_visible) == "true") {this._level_number_img = ImageManager.loadAHud("LV_Number")};
+	if (String(Moghunter.ahud_maxhp_number_visible) == "true") {this._maxhp_number_img = ImageManager.loadAHud("HP_Number2")};
+	if (String(Moghunter.ahud_maxmp_number_visible) == "true") {this._maxmp_number_img = ImageManager.loadAHud("MP_Number2")};
+	if (String(Moghunter.ahud_maxtp_number_visible) == "true") {this._maxtp_number_img = ImageManager.loadAHud("TP_Number2")};	
 };
 
 //==============================
@@ -581,7 +752,10 @@ Actor_Hud.prototype.base_parameter_clear = function() {
 	 this._exp_flow = [false,0,0,0];	
 	 this._hp_number_old = -1;
 	 this._mp_number_old = -1;
-	 this._hp_number_old = -1;
+	 this._hp_number_old = -1;	 
+	 this._hp_icon_old = [-1,-1];
+	 this._mp_icon_old = [-1,-1];
+	 this._tp_icon_old = [-1,-1];
 	 this._hp_img_data = [0,0,0];
 	 this._mp_img_data = [0,0,0];
 	 this._tp_img_data = [0,0,0];
@@ -622,12 +796,8 @@ Actor_Hud.prototype.refresh_position = function() {
 	 if (this._face) {
      	 this._face.x = this._pos_x + Moghunter.ahud_face_pos_x;
  	     this._face.y = this._pos_y + Moghunter.ahud_face_pos_y;
+		 this._battler._face_pos = [this._face.x,this._face.y]; 
      };
-	 if (this._turn) {
-        this._turn.x = this._pos_x + Moghunter.ahud_turn_pos_x;
-	    this._turn.y = this._pos_y + Moghunter.ahud_turn_pos_y;
-	 };
-	 this._battler._face_pos = [this._face.x,this._face.y]; 
 };
 
 //==============================
@@ -647,7 +817,6 @@ Actor_Hud.prototype.set_hud_position = function() {
 //==============================
 Actor_Hud.prototype.update = function() {
     Sprite.prototype.update.call(this);	
-	//if (this._data_initial_ref[0] < 2) {this._data_initial_ref[0] += 1; return};
 	if (this.need_refreh_bhud()) {this.refresh_bhud()};
     if (!this._battler) {this.visible = false;return};
 	if (!this._layout_img.isReady()) {return};
@@ -675,6 +844,9 @@ Actor_Hud.prototype.create_sprites = function() {
 	this.create_hp_meter();
 	this.create_mp_meter();
     this.create_tp_meter();
+	this.create_hp_icon();
+	this.create_mp_icon();
+    this.create_tp_icon();
 	this.create_exp_meter();
 	this.create_hp_number();	
 	this.create_maxhp_number();
@@ -718,8 +890,7 @@ Actor_Hud.prototype.update_visible = function() {
 	 this.visible = true;
      if (this.needHide(false)) {
 		 this.opacity -= 15;
-	 } else {
-		 	
+	 } else {		 	
 		if (this.needFade()) {
 			if (this.opacity > Moghunter.ahud_fade_limit) {
 				this.opacity -= 10;
@@ -727,11 +898,9 @@ Actor_Hud.prototype.update_visible = function() {
 			 };
 		} else {
 				 this.opacity += 10;
-		};
-		
+		};		
 	 };
 };
-
 
 //==============================
 // * Need Fade
@@ -813,7 +982,8 @@ Actor_Hud.prototype.need_refresh_parameter = function(parameter) {
 		 if (this._mp_old[1] != this._battler.mmp) {return true};
          break;			
   	case 2:
-         if (this._tp_old != this._battler.tp) {return true};
+         if (this._tp_old[0] != this._battler.tp) {return true};		 
+		 if (this._tp_old[1] != this._battler.maxTp()) {return true};
          break;	
   	case 3:
          if (this._exp_old != this._battler.currentExp()) {return true};
@@ -946,13 +1116,13 @@ Actor_Hud.prototype.create_hp_meter = function() {
 	this._hp_meter_red = new Sprite(this._hp_meter_img);
 	this._hp_meter_red.x = this._pos_x + Moghunter.ahud_hp_meter_pos_x;
 	this._hp_meter_red.y = this._pos_y + Moghunter.ahud_hp_meter_pos_y;
-	this._hp_meter_red.rotation = Moghunter.ahud_hp_meter_rotation;
+	this._hp_meter_red.rotation = Moghunter.ahud_hp_meter_rotation * Math.PI / 180;
 	this._hp_meter_red.opacity = 0;
 	this.addChild(this._hp_meter_red);		
 	this._hp_meter_blue = new Sprite(this._hp_meter_img);
 	this._hp_meter_blue.x = this._hp_meter_red.x;
 	this._hp_meter_blue.y = this._hp_meter_red.y;
-	this._hp_meter_blue.rotation = this._hp_meter_red.rotation;
+	this._hp_meter_blue.rotation = this._hp_meter_red.rotation * Math.PI / 180;
 	this._hp_meter_blue.opacity = 0;
 	this.addChild(this._hp_meter_blue);
 	this._hp_old_ani[0] = this._battler.hp - 1;
@@ -960,6 +1130,276 @@ Actor_Hud.prototype.create_hp_meter = function() {
 	    this._hp_flow[2] = this._hp_meter_img.width / 3;
 		this._hp_flow[3] = this._hp_flow[2] * 2;
 		this._hp_flow[1] = Math.floor(Math.random() * this._hp_flow[2]);
+	};
+};
+
+//==============================
+// * Create HP icon
+//==============================
+Actor_Hud.prototype.create_hp_icon = function() {
+   if (String(Moghunter.ahud_hp_icon_visible) != "true") {return};
+	if (this._hp_icons) {
+	    for (var i = 0; i < this._hp_icons.length; i++) {
+			this.removeChild(this._hp_icons[i]);
+	    };
+	    for (var i = 0; i < this._hp_iconsB.length; i++) {
+			this.removeChild(this._hp_iconsB[i]);
+	    };
+	};	
+	if (!this._battler) {return};	
+	var n_icons = Moghunter.ahud_hp_icon_rows * Moghunter.ahud_hp_icon_cols;
+	this._hp_icons = [];
+	this._hp_icons.iconMode = String(Moghunter.ahud_hp_icon_halfMode) == "true" ? true : false;
+	this._hp_iconsB = [];
+	this._hp_iconsB.iconMode = this._hp_icons.iconMode;
+	this._hp_IconZoomAnime = String(Moghunter.ahud_hp_icon_zoomAnime) == "true" ? true : false;
+	var colors = Math.max(Moghunter.ahud_hp_icon_colorMax, 2)
+	var cw = this._hp_icon_img.width / colors;
+	var ch = this._hp_icon_img.height / 2;
+	for (var i = 0; i < n_icons; i++) {
+		 this._hp_iconsB[i] = new Sprite(this._hp_icon_img);
+		 this._hp_iconsB[i].colorMax = colors;
+		 this._hp_iconsB[i].anchor.x = 0.5;
+		 this._hp_iconsB[i].anchor.y = 0.5;
+		 this._hp_iconsB[i].rows = Moghunter.ahud_hp_icon_rows;
+		 this._hp_iconsB[i].cols = Moghunter.ahud_hp_icon_cols;
+		 this._hp_iconsB[i].org = [this._pos_x + Moghunter.ahud_hp_icon_pos_x - cw,this._pos_y + Moghunter.ahud_hp_icon_pos_y - ch];
+		 this._hp_iconsB[i].spc = [Moghunter.ahud_hp_icon_space_x,Moghunter.ahud_hp_icon_space_y];
+		 this._hp_iconsB[i].zoomA = this._hp_IconZoomAnime;
+		 this._hp_iconsB[i].zoomData = [0,0,0,1.00];
+		 this._hp_iconsB[i].visible = false;
+		 this._hp_iconsB[i].enabled = false;
+		 this.addChild(this._hp_iconsB[i]);
+	};		
+	for (var i = 0; i < n_icons; i++) {
+		 this._hp_icons[i] = new Sprite(this._hp_icon_img);
+		 this._hp_icons[i].colorMax = Math.max(Moghunter.ahud_hp_icon_colorMax, 2);
+		 this._hp_icons[i].anchor.x = 0.5;
+		 this._hp_icons[i].anchor.y = 0.5;		 
+		 this._hp_icons[i].rows = Moghunter.ahud_hp_icon_rows;
+		 this._hp_icons[i].cols = Moghunter.ahud_hp_icon_cols;
+		 this._hp_icons[i].org = [this._pos_x + Moghunter.ahud_hp_icon_pos_x - cw,this._pos_y + Moghunter.ahud_hp_icon_pos_y - ch];
+		 this._hp_icons[i].spc = [Moghunter.ahud_hp_icon_space_x,Moghunter.ahud_hp_icon_space_y];
+		 this._hp_icons[i].zoomA = this._hp_IconZoomAnime;
+		 this._hp_icons[i].zoomData = [0,0,0,1.00];	 
+		 this._hp_icons[i].visible = false;
+		 this._hp_icons[i].enabled = false;
+		 this.addChild(this._hp_icons[i]);
+	};
+};
+
+//==============================
+// * Create MP icon
+//==============================
+Actor_Hud.prototype.create_mp_icon = function() {
+   if (String(Moghunter.ahud_mp_icon_visible) != "true") {return};
+	if (this._mp_icons) {
+	    for (var i = 0; i < this._mp_icons.length; i++) {
+			this.removeChild(this._mp_icons[i]);
+	    };
+	    for (var i = 0; i < this._mp_iconsB.length; i++) {
+			this.removeChild(this._mp_iconsB[i]);
+	    };
+	};	
+	if (!this._battler) {return};	
+	var n_icons = Moghunter.ahud_mp_icon_rows * Moghunter.ahud_mp_icon_cols;
+	this._mp_icons = [];
+	this._mp_icons.iconMode = String(Moghunter.ahud_mp_icon_halfMode) == "true" ? true : false;
+	this._mp_iconsB = [];
+	this._mp_iconsB.iconMode = 0;
+	this._mp_IconZoomAnime = String(Moghunter.ahud_mp_icon_zoomAnime) == "true" ? true : false
+	var colors = Math.max(Moghunter.ahud_mp_icon_colorMax, 2);
+	var cw = this._mp_icon_img.width / colors;
+	var ch = this._mp_icon_img.height / 2;
+	for (var i = 0; i < n_icons; i++) {
+		 this._mp_iconsB[i] = new Sprite(this._mp_icon_img);
+		 this._mp_iconsB[i].colorMax = colors;
+		 this._mp_iconsB[i].anchor.x = 0.5;
+		 this._mp_iconsB[i].anchor.y = 0.5;
+		 this._mp_iconsB[i].rows = Moghunter.ahud_mp_icon_rows;
+		 this._mp_iconsB[i].cols = Moghunter.ahud_mp_icon_cols;
+		 this._mp_iconsB[i].org = [this._pos_x + Moghunter.ahud_mp_icon_pos_x - cw,this._pos_y + Moghunter.ahud_mp_icon_pos_y - ch];
+		 this._mp_iconsB[i].spc = [Moghunter.ahud_mp_icon_space_x,Moghunter.ahud_mp_icon_space_y];
+		 this._mp_iconsB[i].zoomA = this._mp_IconZoomAnime;
+		 this._mp_iconsB[i].zoomData = [0,0,0,1.00];
+		 this._mp_iconsB[i].visible = false;
+		 this._mp_iconsB[i].enabled = false;
+		 this.addChild(this._mp_iconsB[i]);
+	};		
+	for (var i = 0; i < n_icons; i++) {
+		 this._mp_icons[i] = new Sprite(this._mp_icon_img);
+		 this._mp_icons[i].colorMax = Math.max(Moghunter.ahud_mp_icon_colorMax, 2);
+		 this._mp_icons[i].anchor.x = 0.5;
+		 this._mp_icons[i].anchor.y = 0.5;		 
+		 this._mp_icons[i].rows = Moghunter.ahud_mp_icon_rows;
+		 this._mp_icons[i].cols = Moghunter.ahud_mp_icon_cols;
+		 this._mp_icons[i].org = [this._pos_x + Moghunter.ahud_mp_icon_pos_x - cw,this._pos_y + Moghunter.ahud_mp_icon_pos_y - ch];
+		 this._mp_icons[i].spc = [Moghunter.ahud_mp_icon_space_x,Moghunter.ahud_mp_icon_space_y];
+		 this._mp_icons[i].zoomA = this._mp_IconZoomAnime;
+		 this._mp_icons[i].zoomData = [0,0,0,1.00];	 
+		 this._mp_icons[i].visible = false;
+		 this._mp_icons[i].enabled = false;
+		 this.addChild(this._mp_icons[i]);
+	};	
+};
+
+//==============================
+// * Create TP icon
+//==============================
+Actor_Hud.prototype.create_tp_icon = function() {
+   if (String(Moghunter.ahud_tp_icon_visible) != "true") {return};
+	if (this._tp_icons) {
+	    for (var i = 0; i < this._tp_icons.length; i++) {
+			this.removeChild(this._tp_icons[i]);
+	    };
+	    for (var i = 0; i < this._tp_iconsB.length; i++) {
+			this.removeChild(this._tp_iconsB[i]);
+	    };
+	};	
+	if (!this._battler) {return};	
+	var n_icons = Moghunter.ahud_tp_icon_rows * Moghunter.ahud_tp_icon_cols;
+	this._tp_icons = [];
+	this._tp_icons.iconMode = String(Moghunter.ahud_tp_icon_halfMode) == "true" ? true : false;
+	this._tp_iconsB = [];
+	this._tp_iconsB.iconMode = this._tp_icons.iconMode;
+	this._tp_IconZoomAnime = String(Moghunter.ahud_tp_icon_zoomAnime) == "true" ? true : false;
+	var colors = Math.max(Moghunter.ahud_tp_icon_colorMax, 2);
+	var cw = this._tp_icon_img.width / colors;
+	var ch = this._tp_icon_img.height / 2;
+	for (var i = 0; i < n_icons; i++) {
+		 this._tp_iconsB[i] = new Sprite(this._tp_icon_img);
+		 this._tp_iconsB[i].colorMax = colors;
+		 this._tp_iconsB[i].anchor.x = 0.5;
+		 this._tp_iconsB[i].anchor.y = 0.5;
+		 this._tp_iconsB[i].rows = Moghunter.ahud_tp_icon_rows;
+		 this._tp_iconsB[i].cols = Moghunter.ahud_tp_icon_cols;
+		 this._tp_iconsB[i].org = [this._pos_x + Moghunter.ahud_tp_icon_pos_x - cw,this._pos_y + Moghunter.ahud_tp_icon_pos_y - ch];
+		 this._tp_iconsB[i].spc = [Moghunter.ahud_tp_icon_space_x,Moghunter.ahud_tp_icon_space_y];
+		 this._tp_iconsB[i].zoomA = this._tp_IconZoomAnime;
+		 this._tp_iconsB[i].zoomData = [0,0,0,1.00];
+		 this._tp_iconsB[i].visible = false;
+		 this._tp_iconsB[i].enabled = false;
+		 this.addChild(this._tp_iconsB[i]);
+	};		
+	for (var i = 0; i < n_icons; i++) {
+		 this._tp_icons[i] = new Sprite(this._tp_icon_img);
+		 this._tp_icons[i].colorMax = Math.max(Moghunter.ahud_tp_icon_colorMax, 2);
+		 this._tp_icons[i].anchor.x = 0.5;
+		 this._tp_icons[i].anchor.y = 0.5;		 
+		 this._tp_icons[i].rows = Moghunter.ahud_tp_icon_rows;
+		 this._tp_icons[i].cols = Moghunter.ahud_tp_icon_cols;
+		 this._tp_icons[i].org = [this._pos_x + Moghunter.ahud_tp_icon_pos_x - cw,this._pos_y + Moghunter.ahud_tp_icon_pos_y - ch];
+		 this._tp_icons[i].spc = [Moghunter.ahud_tp_icon_space_x,Moghunter.ahud_tp_icon_space_y];
+		 this._tp_icons[i].zoomA = this._tp_IconZoomAnime;
+		 this._tp_icons[i].zoomData = [0,0,0,1.00];	 
+		 this._tp_icons[i].visible = false;
+		 this._tp_icons[i].enabled = false;
+		 this.addChild(this._tp_icons[i]);
+	};		
+};
+
+//==============================
+// * refresh Icons
+//==============================
+Actor_Hud.prototype.refresh_icons = function(sprites,image,par,par_max,mode) {	
+    var halfpar = Math.floor(par / 2);
+	var parOdd1 = par%2;
+	var parOdd2 = parOdd1 == 0 ? true : false;
+	var prepar = par;
+	par = sprites.iconMode ? (halfpar + parOdd1) : par;
+	var prepar2 = par;
+	var halfmaxpar = Math.floor(par_max / 2);
+	var parmaxOdd1 = par_max%2;
+	var parmaxOdd2 = parmaxOdd1 == 0 ? true : false;
+	var preparmax = par_max;
+	par_max = sprites.iconMode ? (halfmaxpar + parmaxOdd1) : par_max;
+	var preparmax2 = par_max;	
+	if (mode === 1 && par > sprites.length) {
+
+			var mx_g = Math.floor(par / sprites.length);
+			var mx_l = sprites.length * mx_g;
+			var par = par - mx_l;
+			if (par === 0) {par = sprites.length};
+	};
+	for (var i = 0; i < sprites.length; i++) {
+		var icon = sprites[i];
+		icon.visible = false;
+		icon.opacity = 255;
+		icon.enable = (prepar2 > 0 && i === (prepar2 - 1) && mode === 1) ? true : false;
+		var cw = image.width / icon.colorMax;
+		var ch = image.height;
+		if (par > 0 && icon.colorMax > 2) {
+			var lines  = Math.floor((prepar - 1) / sprites.length) + 1;
+			if (lines >= icon.colorMax - 1) {
+				var hp = (icon.colorMax - 1) * cw;
+				if (mode === 1) {icon.opacity = 0};
+			} else {
+              if (mode === 0 && lines > 0) {lines--};
+			  var hp = lines * cw;	
+			};
+		} else {
+			if (mode === 1 && prepar2 > sprites.length) {
+				par = prepar;
+				icon.enable = false;
+			};		
+		    var hp = mode === 1 ? cw : 0;
+		};
+		var sX = cw + 2 + icon.spc[0];
+		var sY = ch + 2 + icon.spc[1];
+		var lX = sX * icon.rows;
+		var lines = Math.floor(i / icon.rows);
+		if (sprites.iconMode) {
+			if (mode === 0) {
+				icon.scale.x = 1.00;
+				if (par_max <= sprites.length && i == par_max - 1) {
+					icon.scale.x = !parmaxOdd2 ? 0.5 : 1.00;
+				};
+			} else  {
+				if (prepar2 - 1 === i) {
+					icon.scale.x = parOdd2 ? 1.00 : 0.50;
+				} else {
+					icon.scale.x = 1.00;
+				};		
+			};
+		} else {
+			icon.scale.x = 1.00;
+		};
+		icon.scale.y = icon.scale.x;
+		icon.zoomData = [0,0,0,icon.scale.x]; 
+		icon.visible = true
+		if (par_max < sprites.length && i > (par_max - 1)) {icon.visible = false};
+	 	if (mode === 1) {
+			icon.visible = i > prepar2 - 1 ? false : true
+		};
+		icon.setFrame(hp,0,cw,ch);
+		icon.x = icon.org[0] + (sX * i) - (lX * lines);
+		icon.y = icon.org[1] + (sY * lines);
+	};
+};
+
+//==============================
+// * update Icon Zoom Anime
+//==============================
+Actor_Hud.prototype.updateIconZoomAnime = function(sprites) {
+	for (var i = 0; i < sprites.length; i++) {
+		 var icon = sprites[i];
+		 if (icon.enable) {
+			 icon.zoomData[1]++;
+			 if (icon.zoomData[1] > 2) {
+			     icon.zoomData[1] = 0;
+				 icon.zoomData[2]++;
+			     if (icon.zoomData[2] < 15) {
+			         icon.zoomData[0] += 0.02;
+				 } else if (icon.zoomData[2] < 30) {
+					 icon.zoomData[0] -= 0.02;
+				 } else {
+					 icon.zoomData[0] = 0;
+				     icon.zoomData[2] = 0;
+				 };
+			     icon.scale.x = icon.zoomData[3] + icon.zoomData[0];
+			     icon.scale.y = icon.scale.x;
+			 };
+		 };
 	};
 };
 
@@ -1019,6 +1459,10 @@ Actor_Hud.prototype.update_hp = function() {
 		this._hp_meter_blue.opacity += 15;
 		this._hp_meter_red.opacity += 15;
 		if(this._hp_flow[0]) {
+		   if (this._hp_old[1] != this._battler.mhp) {
+		       this._hp_old = [this._battler.hp,this._battler.mhp];
+			   this.refresh_meter_flow(this._hp_meter_red,this._battler.hp,this._battler.mhp,1,this._hp_flow[1]);
+		   };					
 		   this.refresh_meter_flow(this._hp_meter_blue,this._battler.hp,this._battler.mhp,0,this._hp_flow[1]);
 	   	   var dif_meter = this.update_dif(this._hp_old_ani[0],this._battler.hp,160)
 		   if (this._hp_old_ani[0] != dif_meter) {this._hp_old_ani[0] = dif_meter;
@@ -1046,6 +1490,15 @@ Actor_Hud.prototype.update_hp = function() {
 		if (this._maxhp_number_old != this._battler.mhp) {this._maxhp_number_old = this._battler.mhp;
 		this.refresh_number(this._maxhp_number,this._maxhp_number_old,this._maxhp_img_data,this._maxhp_img_data[4],0);};
 	};
+	if (this._hp_icons) {
+		if (this._hp_icon_old[0] != this._battler.hp || this._hp_icon_old[1] != this._battler.mhp) {
+		    this._hp_icon_old[0] = this._battler.hp;
+			this._hp_icon_old[1] = this._battler.mhp;
+			this.refresh_icons(this._hp_iconsB,this._hp_icon_img,this._battler.hp,this._battler.mhp,0);
+	        this.refresh_icons(this._hp_icons,this._hp_icon_img,this._battler.hp,this._battler.mhp,1);
+		};
+		if (this._hp_IconZoomAnime) {this.updateIconZoomAnime(this._hp_icons)};
+    };
 };
 
 //==============================
@@ -1059,13 +1512,13 @@ Actor_Hud.prototype.create_mp_meter = function() {
 	this._mp_meter_red = new Sprite(this._mp_meter_img);
 	this._mp_meter_red.x = this._pos_x + Moghunter.ahud_mp_meter_pos_x;
 	this._mp_meter_red.y = this._pos_y + Moghunter.ahud_mp_meter_pos_y;
-	this._mp_meter_red.rotation = Moghunter.ahud_mp_meter_rotation;
+	this._mp_meter_red.rotation = Moghunter.ahud_mp_meter_rotation * Math.PI / 180;
 	this._mp_meter_red.opacity = 0;
 	this.addChild(this._mp_meter_red);		
 	this._mp_meter_blue = new Sprite(this._mp_meter_img);
 	this._mp_meter_blue.x = this._mp_meter_red.x;
 	this._mp_meter_blue.y = this._mp_meter_red.y;
-	this._mp_meter_blue.rotation = this._mp_meter_red.rotation;
+	this._mp_meter_blue.rotation = this._mp_meter_red.rotation * Math.PI / 180;
 	this._mp_meter_blue.opacity = 0;
 	this.addChild(this._mp_meter_blue);
 	this._mp_old_ani[0] = this._battler.mp - 1;
@@ -1132,8 +1585,12 @@ Actor_Hud.prototype.update_mp = function() {
      	this._mp_meter_blue.opacity += 15;
 	    this._mp_meter_red.opacity += 15;			
 		if(this._mp_flow[0]) {
+		   if (this._mp_old[1] != this._battler.mmp) {
+		       this._mp_old = [this._battler.mp,this._battler.mmp];
+			   this.refresh_meter_flow(this._mp_meter_red,this._battler.mp,this._battler.mmp,1,this._mp_flow[1]);
+		   };			
 		   this.refresh_meter_flow(this._mp_meter_blue,this._battler.mp,this._battler.mmp,0,this._mp_flow[1]);
-	   	   var dif_meter = this.update_dif(this._mp_old_ani[0],this._battler.mp,160)
+	   	   var dif_meter = this.update_dif(this._mp_old_ani[0],this._battler.mp,160);
 		   if (this._mp_old_ani[0] != dif_meter) {this._mp_old_ani[0] = dif_meter;
 	       this.refresh_meter_flow(this._mp_meter_red,this._mp_old_ani[0],this._battler.mmp,1,this._mp_flow[1]);
 		   };
@@ -1158,8 +1615,16 @@ Actor_Hud.prototype.update_mp = function() {
 	if (this._maxmp_number) {
 		if (this._maxmp_number_old != this._battler.mmp) {this._maxmp_number_old = this._battler.mmp;
 		this.refresh_number(this._maxmp_number,this._maxmp_number_old,this._maxmp_img_data,this._maxmp_img_data[4],0);};
-	};	
-	
+	};
+	if (this._mp_icons) {
+		if (this._mp_icon_old[0] != this._battler.mp || this._mp_icon_old[1] != this._battler.mmp) {
+		    this._mp_icon_old[0] = this._battler.mp;
+			this._mp_icon_old[1] = this._battler.mmp;
+			this.refresh_icons(this._mp_iconsB,this._mp_icon_img,this._battler.mp,this._battler.mmp,0);
+	        this.refresh_icons(this._mp_icons,this._mp_icon_img,this._battler.mp,this._battler.mmp,1);
+		};
+		if (this._mp_IconZoomAnime) {this.updateIconZoomAnime(this._mp_icons)};
+    };	
 };
 
 //==============================
@@ -1173,13 +1638,13 @@ Actor_Hud.prototype.create_tp_meter = function() {
 	this._tp_meter_red = new Sprite(this._tp_meter_img);
 	this._tp_meter_red.x = this._pos_x + Moghunter.ahud_tp_meter_pos_x;
 	this._tp_meter_red.y = this._pos_y + Moghunter.ahud_tp_meter_pos_y;
-	this._tp_meter_red.rotation = Moghunter.ahud_tp_meter_rotation;
+	this._tp_meter_red.rotation = Moghunter.ahud_tp_meter_rotation * Math.PI / 180;;
 	this._tp_meter_red.opacity = 0;
 	this.addChild(this._tp_meter_red);		
 	this._tp_meter_blue = new Sprite(this._tp_meter_img);
 	this._tp_meter_blue.x = this._tp_meter_red.x;
 	this._tp_meter_blue.y = this._tp_meter_red.y;
-	this._tp_meter_blue.rotation = this._tp_meter_red.rotation;
+	this._tp_meter_blue.rotation = this._tp_meter_red.rotation * Math.PI / 180;;
 	this._tp_meter_blue.opacity = 0;
 	this.addChild(this._tp_meter_blue);
 	this._tp_old_ani[0] = this._battler.tp - 1;
@@ -1246,22 +1711,26 @@ Actor_Hud.prototype.update_tp = function() {
 		this._tp_meter_blue.opacity += 15;
 		this._tp_meter_red.opacity += 15;
 		if(this._tp_flow[0]) {
-		   this.refresh_meter_flow(this._tp_meter_blue,this._battler.tp,100,0,this._tp_flow[1]);
+		   if (this._tp_old[1] != this._battler.maxTp()) {
+		       this._tp_old = [this._battler.tp,this._battler.maxTp()];
+			   this.refresh_meter_flow(this._tp_meter_red,this._battler.tp,this._battler.maxTp(),1,this._tp_flow[1]);
+		   };				
+		   this.refresh_meter_flow(this._tp_meter_blue,this._battler.tp,this._battler.maxTp(),0,this._tp_flow[1]);
 	   	   var dif_meter = this.update_dif(this._tp_old_ani[0],this._battler.tp,160)
 		   if (this._tp_old_ani[0] != dif_meter) {this._tp_old_ani[0] = dif_meter;
-	       this.refresh_meter_flow(this._tp_meter_red,this._tp_old_ani[0],100,1,this._tp_flow[1]);
+	       this.refresh_meter_flow(this._tp_meter_red,this._tp_old_ani[0],this._battler.maxTp(),1,this._tp_flow[1]);
 		   };
 		   this._tp_flow[1] += 2;
 		   if (this._tp_flow[1] > this._tp_flow[3]) {this._tp_flow[1] = 0};		   
    	    }
 		else {	
 			if (this.need_refresh_parameter(2)) {
-				this.refresh_meter(this._tp_meter_blue,this._battler.tp,100,0,2,0);
-				this._tp_old = [this._battler.tp,100];
+				this.refresh_meter(this._tp_meter_blue,this._battler.tp,this._battler.maxTp(),0,2,0);
+				this._tp_old = [this._battler.tp,this._battler.maxTp()];
 			};
 			var dif_meter = this.update_dif(this._tp_old_ani[0],this._battler.tp,160)
 			if (this._tp_old_ani[0] != dif_meter) {this._tp_old_ani[0] = dif_meter;
-			this.refresh_meter(this._tp_meter_red,this._tp_old_ani[0],100,1,2,0);};
+			this.refresh_meter(this._tp_meter_red,this._tp_old_ani[0],this._battler.maxTp(),1,2,0);};
 	};
     };
 	if (this._tp_number) {
@@ -1269,6 +1738,15 @@ Actor_Hud.prototype.update_tp = function() {
 		if (this._tp_number_old != dif_number) {this._tp_number_old = dif_number;
 		this.refresh_number(this._tp_number,this._tp_number_old,this._tp_img_data,this._tp_img_data[4],0);};
 	};
+	if (this._tp_icons) {
+		if (this._tp_icon_old[0] != this._battler.tp || this._tp_icon_old[1] != this._battler.maxTp()) {
+		    this._tp_icon_old[0] = this._battler.tp;
+			this._tp_icon_old[1] = this._battler.maxTp();
+			this.refresh_icons(this._tp_iconsB,this._tp_icon_img,this._battler.tp,this._battler.maxTp(),0);
+	        this.refresh_icons(this._tp_icons,this._tp_icon_img,this._battler.tp,this._battler.maxTp(),1);
+		};
+		if (this._tp_IconZoomAnime) {this.updateIconZoomAnime(this._tp_icons)};
+    };	
 };
 
 
@@ -1283,7 +1761,7 @@ if (String(Moghunter.ahud_exp_meter_visible) != "true") {return};
 	this._exp_meter.x = this._pos_x + Moghunter.ahud_exp_meter_pos_x;
 	this._exp_meter.y = this._pos_y + Moghunter.ahud_exp_meter_pos_y;
 	this._exp_meter.opacity = 0;
-	this._exp_meter.rotation = this._exp_meter.rotation;
+	this._exp_meter.rotation = this._exp_meter.rotation * Math.PI / 180;
 	this.addChild(this._exp_meter);
 	if (String(Moghunter.ahud_exp_meter_flow) === "true") {this._exp_flow[0] = true;
 	    this._exp_flow[2] = this._exp_meter_img.width / 3;
