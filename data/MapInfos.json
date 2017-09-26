@@ -1,13 +1,13 @@
 [
 null,
-{"id":1,"expanded":false,"name":"MAP001","order":5,"parentId":0,"scrollX":817,"scrollY":461},
+{"id":1,"expanded":false,"name":"Final Boss","order":7,"parentId":10,"scrollX":0,"scrollY":0},
 {"id":2,"expanded":false,"name":"TEST MAP","order":1,"parentId":0,"scrollX":809,"scrollY":482},
-{"id":3,"expanded":false,"name":"Tutorial Area","order":2,"parentId":0,"scrollX":817,"scrollY":461},
-{"id":4,"expanded":true,"name":"Troy's Forest World","order":3,"parentId":0,"scrollX":817,"scrollY":461},
-{"id":5,"expanded":false,"name":"MAP005","order":4,"parentId":4,"scrollX":598.8,"scrollY":350.4},
-{"id":6,"expanded":true,"name":"Desert Map","order":6,"parentId":0,"scrollX":817,"scrollY":461},
-{"id":7,"expanded":true,"name":"Desert Map 2","order":7,"parentId":6,"scrollX":817,"scrollY":461},
-{"id":8,"expanded":true,"name":"Desert Map3","order":8,"parentId":7,"scrollX":817,"scrollY":461},
-{"id":9,"expanded":true,"name":"Dungeon Part 1","order":9,"parentId":8,"scrollX":817,"scrollY":461},
-{"id":10,"expanded":false,"name":"Dungeon Part 2","order":10,"parentId":9,"scrollX":817,"scrollY":461}
+null,
+null,
+null,
+{"id":6,"expanded":true,"name":"Desert Map","order":2,"parentId":0,"scrollX":817,"scrollY":461},
+{"id":7,"expanded":true,"name":"Desert Map 2","order":3,"parentId":6,"scrollX":817,"scrollY":461},
+{"id":8,"expanded":true,"name":"Desert Map3","order":4,"parentId":7,"scrollX":817,"scrollY":461},
+{"id":9,"expanded":true,"name":"Dungeon Part 1","order":5,"parentId":8,"scrollX":817,"scrollY":461},
+{"id":10,"expanded":true,"name":"Dungeon Part 2","order":6,"parentId":9,"scrollX":817,"scrollY":461}
 ]
