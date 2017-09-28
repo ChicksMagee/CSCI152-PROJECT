@@ -9,7 +9,7 @@
     "poses": {
       "atk1": {
         "name": "atk1",
-        "speed": 10,
+        "speed": 3,
         "adjust": false,
         "pattern": [
           0,
@@ -23,7 +23,7 @@
       },
       "atk3": {
         "name": "atk3",
-        "speed": 10,
+        "speed": 3,
         "adjust": false,
         "pattern": [
           14,
@@ -37,7 +37,7 @@
       },
       "atk7": {
         "name": "atk7",
-        "speed": 10,
+        "speed": 3,
         "adjust": false,
         "pattern": [
           16,
@@ -51,7 +51,7 @@
       },
       "atk9": {
         "name": "atk9",
-        "speed": 10,
+        "speed": 3,
         "adjust": false,
         "pattern": [
           110,
