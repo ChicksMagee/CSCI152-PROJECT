@@ -2,14 +2,14 @@
   "hero": {
     "name": "hero",
     "cols": 8,
-    "rows": 14,
+    "rows": 18,
     "anchorX": 0.5,
     "anchorY": 1,
     "sampleImg": "C:\\Users\\Zarudin\\Documents\\Games\\Project1\\img\\characters\\%hero-sprite.png",
     "poses": {
       "atk1": {
         "name": "atk1",
-        "speed": 3,
+        "speed": 5,
         "adjust": false,
         "pattern": [
           0,
@@ -23,7 +23,7 @@
       },
       "atk3": {
         "name": "atk3",
-        "speed": 3,
+        "speed": 5,
         "adjust": false,
         "pattern": [
           14,
@@ -37,7 +37,7 @@
       },
       "atk7": {
         "name": "atk7",
-        "speed": 3,
+        "speed": 5,
         "adjust": false,
         "pattern": [
           16,
@@ -51,7 +51,7 @@
       },
       "atk9": {
         "name": "atk9",
-        "speed": 3,
+        "speed": 5,
         "adjust": false,
         "pattern": [
           110,
@@ -61,6 +61,49 @@
           106,
           105,
           104
+        ]
+      },
+      "atk2": {
+        "name": "atk2",
+        "speed": 5,
+        "adjust": false,
+        "pattern": [
+          112,
+          113,
+          114,
+          115
+        ]
+      },
+      "atk8": {
+        "name": "atk8",
+        "speed": 5,
+        "adjust": false,
+        "pattern": [
+          120,
+          121,
+          122,
+          123,
+          124
+        ]
+      },
+      "atk4": {
+        "name": "atk4",
+        "speed": 8,
+        "adjust": false,
+        "pattern": [
+          128,
+          129,
+          130
+        ]
+      },
+      "atk6": {
+        "name": "atk6",
+        "speed": 8,
+        "adjust": false,
+        "pattern": [
+          135,
+          134,
+          133
         ]
       },
       "move2": {
