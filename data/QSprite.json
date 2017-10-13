@@ -309,6 +309,38 @@
         "pattern": [
           99
         ]
+      },
+      "cast2": {
+        "name": "cast2",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          102
+        ]
+      },
+      "cast4": {
+        "name": "cast4",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          100
+        ]
+      },
+      "cast6": {
+        "name": "cast6",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          101
+        ]
+      },
+      "cast8": {
+        "name": "cast8",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          103
+        ]
       }
     }
   }
