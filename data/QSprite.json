@@ -246,6 +246,38 @@
           90
         ]
       },
+      "hit4": {
+        "name": "hit4",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          136
+        ]
+      },
+      "hit6": {
+        "name": "hit6",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          137
+        ]
+      },
+      "hit2": {
+        "name": "hit2",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          138
+        ]
+      },
+      "hit8": {
+        "name": "hit8",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          139
+        ]
+      },
       "cast1": {
         "name": "cast1",
         "speed": 10,
@@ -270,12 +302,44 @@
           94
         ]
       },
+      "cast2": {
+        "name": "cast2",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          102
+        ]
+      },
+      "cast4": {
+        "name": "cast4",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          100
+        ]
+      },
       "cast7": {
         "name": "cast7",
         "speed": 10,
         "adjust": false,
         "pattern": [
           95
+        ]
+      },
+      "cast6": {
+        "name": "cast6",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          101
+        ]
+      },
+      "cast8": {
+        "name": "cast8",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          103
         ]
       },
       "dead1": {
@@ -308,38 +372,6 @@
         "adjust": false,
         "pattern": [
           99
-        ]
-      },
-      "cast2": {
-        "name": "cast2",
-        "speed": 10,
-        "adjust": false,
-        "pattern": [
-          102
-        ]
-      },
-      "cast4": {
-        "name": "cast4",
-        "speed": 10,
-        "adjust": false,
-        "pattern": [
-          100
-        ]
-      },
-      "cast6": {
-        "name": "cast6",
-        "speed": 10,
-        "adjust": false,
-        "pattern": [
-          101
-        ]
-      },
-      "cast8": {
-        "name": "cast8",
-        "speed": 10,
-        "adjust": false,
-        "pattern": [
-          103
         ]
       }
     }
