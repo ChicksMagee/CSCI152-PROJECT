@@ -18,7 +18,7 @@ var $plugins =
 {"name":"QCamera","status":true,"description":"<QCamera>\r\nBetter Camera control","parameters":{"Offset":"0.5","Shift Y":"0","Shift X":"0"}},
 {"name":"QYScale","status":true,"description":"<QYScale>\r\nChange characters scale based off their Y value","parameters":{}},
 {"name":"========================","status":true,"description":"","parameters":{}},
-{"name":"QPathfind","status":true,"description":"<QPathfind>\nA* Pathfinding algorithm","parameters":{"Diagonals":"false","Any Angle":"false","Intervals":"100","Smart Wait":"60","Dash on Mouse":"true"}},
+{"name":"QPathfind","status":true,"description":"<QPathfind>\r\nA* Pathfinding algorithm","parameters":{"Diagonals":"true","Any Angle":"true","Intervals":"100","Smart Wait":"60","Dash on Mouse":"true"}},
 {"name":"QSight","status":true,"description":"<QSight>\nReal time line of sight","parameters":{"See Through Terrain":"[]","Show":"false"}},
 {"name":"QImport","status":true,"description":"<QImport>\nLets you import text from other game objects or txt files","parameters":{}},
 {"name":"========================","status":true,"description":"","parameters":{}},
