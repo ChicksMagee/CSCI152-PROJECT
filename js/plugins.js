@@ -45,5 +45,6 @@ var $plugins =
 {"name":"YEP_GridFreeDoodads","status":true,"description":"v1.05 Place Grid-Free Doodads into your game using an\nin-game editor. Static and animated doodads can be used!","parameters":{"---General---":"","Doodads Folder":"img/doodads/","Doodads Smoothing":"false","Alphabetical Settings":"false","---Grid Snap---":"","Default Grid Snap":"false","Grid Snap Width":"48","Grid Snap Height":"48"}},
 {"name":"HIME_CommonEventButtons","status":true,"description":"v1.1 - Allows you to execute common events with the press of a \r\nbutton on the map.","parameters":{}},
 {"name":"YEP_RegionRestrictions","status":true,"description":"v1.04 Use regions to block out Events and/or the player from\nbeing able to venture into those spots.","parameters":{"Player Restrict":"0","Event Restrict":"0","All Restrict":"15","Player Allow":"0","Event Allow":"0","All Allow":"0"}},
-{"name":"QYanfly-patches","status":true,"description":"<QYanfly-patches>\nPatches for Yanfly plugins and QPlugins","parameters":{}}
+{"name":"QYanfly-patches","status":true,"description":"<QYanfly-patches>\nPatches for Yanfly plugins and QPlugins","parameters":{}},
+{"name":"YEP_FloorDamage","status":true,"description":"v1.01 Allows you to modify floor damage based on terrain tags.\nYou can also change the color of the flash when damaged, too.","parameters":{"Default Damage":"10","Flash Color":"255, 0, 0, 128"}}
 ];
