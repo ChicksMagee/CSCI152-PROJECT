@@ -489,5 +489,134 @@
         ]
       }
     }
+  },
+  "anubis": {
+    "name": "anubis",
+    "cols": 7,
+    "rows": 12,
+    "anchorX": 0.5,
+    "anchorY": 1,
+    "sampleImg": "C:\\Users\\Suren\\Desktop\\TheNoNameGame-master\\img\\characters\\anubis.png",
+    "poses": {
+      "mov1": {
+        "name": "mov1",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          0,
+          1,
+          2,
+          3,
+          3,
+          4,
+          5,
+          14,
+          14,
+          15,
+          16,
+          17
+        ]
+      },
+      "mov3": {
+        "name": "mov3",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          13,
+          12,
+          11,
+          10,
+          9,
+          8,
+          7,
+          24,
+          23,
+          22,
+          21
+        ]
+      },
+      "mov7": {
+        "name": "mov7",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          42,
+          43,
+          44
+        ]
+      },
+      "mov9": {
+        "name": "mov9",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          41,
+          40,
+          39,
+          38,
+          37,
+          36,
+          35,
+          51,
+          50,
+          49
+        ]
+      },
+      "atk1": {
+        "name": "atk1",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          56,
+          57,
+          58,
+          59,
+          60
+        ]
+      },
+      "atk3": {
+        "name": "atk3",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          63,
+          64,
+          65,
+          66,
+          67
+        ]
+      },
+      "atk7": {
+        "name": "atk7",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          70,
+          71,
+          72,
+          73,
+          74
+        ]
+      },
+      "atk9": {
+        "name": "atk9",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          77,
+          78,
+          79,
+          80,
+          81
+        ]
+      }
+    }
   }
 }
