@@ -618,5 +618,132 @@
         ]
       }
     }
+  },
+  "veritas": {
+    "name": "veritas",
+    "cols": 8,
+    "rows": 10,
+    "anchorX": 0.5,
+    "anchorY": 1,
+    "sampleImg": "C:\\Users\\Zarudin\\Documents\\Games\\Project1\\img\\characters\\%veritas-sprite.png",
+    "poses": {
+      "mov1": {
+        "name": "mov1",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          "",
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "mov3": {
+        "name": "mov3",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          15,
+          14,
+          13,
+          12,
+          11,
+          10,
+          9,
+          8
+        ]
+      },
+      "mov7": {
+        "name": "mov7",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ]
+      },
+      "mov9": {
+        "name": "mov9",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          31,
+          30,
+          29,
+          28,
+          27,
+          26,
+          25,
+          24
+        ]
+      },
+      "atk1": {
+        "name": "atk1",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38
+        ]
+      },
+      "atk3": {
+        "name": "atk3",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          46,
+          45,
+          44,
+          43,
+          42,
+          41,
+          40
+        ]
+      },
+      "atk7": {
+        "name": "atk7",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54
+        ]
+      },
+      "atk9": {
+        "name": "atk9",
+        "speed": 10,
+        "adjust": false,
+        "pattern": [
+          62,
+          61,
+          60,
+          59,
+          58,
+          57,
+          56
+        ]
+      }
+    }
   }
 }
